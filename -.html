@@ -276,7 +276,7 @@ auto_factor</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">today</span>() </code></pre></div>
 <pre><code>## [1] &quot;2019-08-31&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">now</span>()</code></pre></div>
-<pre><code>## [1] &quot;2019-08-31 13:10:33 KST&quot;</code></pre>
+<pre><code>## [1] &quot;2019-08-31 14:28:04 KST&quot;</code></pre>
 <ul>
 <li>문자열 에서 생성</li>
 </ul>
@@ -304,7 +304,7 @@ auto_factor</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ymd</span>(<span class="dv">20170131</span>, <span class="dt">tz =</span> <span class="st">&quot;UTC&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2017-01-31 UTC&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">now</span>(<span class="dt">tz=</span><span class="st">&quot;Asia/Seoul&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;2019-08-31 13:10:33 KST&quot;</code></pre>
+<pre><code>## [1] &quot;2019-08-31 14:28:04 KST&quot;</code></pre>
 </div>
 <div id="nananinf---" class="section level3">
 <h3><span class="header-section-number">3.1.6</span> NA/NaN/Inf 확인 및 처리</h3>
@@ -528,8 +528,72 @@ x</code></pre></div>
 </div>
 <div id="data-frame" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> 데이타프레임(Data Frame)</h3>
+<div id="---" class="section level4">
+<h4><span class="header-section-number">3.2.4.1</span> 데이터 프레임 만들고 조작</h4>
+<ul>
+<li>데이터 프레임 생성</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ID &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BMW&quot;</span>,<span class="st">&quot;Lexus&quot;</span>,<span class="st">&quot;Tesla&quot;</span>,<span class="st">&quot;Hyundai&quot;</span>)
+DISTANCE &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">120000</span>,<span class="dv">1200</span>,<span class="dv">300000</span>,<span class="dv">124000</span>)
+SPEED &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">240</span>,<span class="dv">250</span>,<span class="dv">300</span>,<span class="dv">220</span>)
+ORDER_YEAR &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2010</span>,<span class="dv">2019</span>,<span class="dv">2008</span>,<span class="dv">2011</span>)
+
+dataframe_test &lt;-<span class="st"> </span><span class="kw">data.frame</span>(ID, DISTANCE, SPEED, ORDER_YEAR)
+dataframe_test</code></pre></div>
+<pre><code>##        ID DISTANCE SPEED ORDER_YEAR
+## 1     BMW   120000   240       2010
+## 2   Lexus     1200   250       2019
+## 3   Tesla   300000   300       2008
+## 4 Hyundai   124000   220       2011</code></pre>
+<ul>
+<li>데이터 프레임 생성 및 조회</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>)
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;M&#39;</span>,<span class="st">&#39;F&#39;</span>,<span class="st">&#39;M&#39;</span>,<span class="st">&#39;F&#39;</span>,<span class="st">&#39;M&#39;</span>)
+d &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x,y,z)
+d</code></pre></div>
+<pre><code>##   x  y z
+## 1 1  2 M
+## 2 2  4 F
+## 3 3  6 M
+## 4 4  8 F
+## 5 5 10 M</code></pre>
+<ul>
+<li>x열만 조회</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d<span class="op">$</span>x</code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<ul>
+<li>q열 추가</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d<span class="op">$</span>q &lt;-<span class="st"> </span><span class="dv">6</span><span class="op">:</span><span class="dv">10</span></code></pre></div>
+<ul>
+<li>q열 수정</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d<span class="op">$</span>q &lt;-<span class="st"> </span><span class="dv">20</span><span class="op">:</span><span class="dv">24</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d[<span class="dv">3</span>,<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d[<span class="dv">3</span>]</code></pre></div>
+<pre><code>##   z
+## 1 M
+## 2 F
+## 3 M
+## 4 F
+## 5 M</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d[<span class="op">-</span><span class="dv">3</span>,<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1]  2  4  8 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d[,<span class="kw">c</span>(<span class="st">&quot;x&quot;</span>,<span class="st">&quot;y&quot;</span>)]</code></pre></div>
+<pre><code>##   x  y
+## 1 1  2
+## 2 2  4
+## 3 3  6
+## 4 4  8
+## 5 5 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(d)</code></pre></div>
+</div>
 <div id="-" class="section level4">
-<h4><span class="header-section-number">3.2.4.1</span> 데이터 변환</h4>
+<h4><span class="header-section-number">3.2.4.2</span> 데이터 변환</h4>
 <p>문자형 벡터를 팩터형으로 변환</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)
 y &lt;-<span class="st"> </span><span class="kw">as.factor</span>(x)
