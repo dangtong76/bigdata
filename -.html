@@ -174,18 +174,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="----" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> 데이터 타입 및 데이터 구조</h1>
+<p><img src="images/2-1.png" /><!-- --></p>
 <div id="variable" class="section level2">
 <h2><span class="header-section-number">3.1</span> 변수(Variable)</h2>
-<p>숫자, 문자, 범주, 논리, 날짜 등의 데이터 타입을 할당하고 관리 <script>
+<ul>
+<li>숫자, 문자, 범주, 논리, 날짜 등의 데이터 타입을 할당하고 관리 <script>
   addClassKlippyTo("pre.r, pre.markdown");
   addKlippy('left', 'top', 'auto', '1', 'Copy code', 'Copied!');
-</script></p>
+</script></li>
+</ul>
 <div id="numeric" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> 숫자(Numeric)</h3>
 <ul>
 <li>숫자</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x1 &lt;-<span class="st"> </span><span class="dv">13</span>; x1; <span class="kw">class</span>(x1); <span class="kw">str</span>(x1)</code></pre></div>
 <pre><code>## [1] 13</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <pre><code>##  num 13</code></pre>
@@ -276,7 +278,7 @@ auto_factor</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">today</span>() </code></pre></div>
 <pre><code>## [1] &quot;2019-08-31&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">now</span>()</code></pre></div>
-<pre><code>## [1] &quot;2019-08-31 14:28:04 KST&quot;</code></pre>
+<pre><code>## [1] &quot;2019-08-31 22:36:50 KST&quot;</code></pre>
 <ul>
 <li>문자열 에서 생성</li>
 </ul>
@@ -304,7 +306,7 @@ auto_factor</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ymd</span>(<span class="dv">20170131</span>, <span class="dt">tz =</span> <span class="st">&quot;UTC&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2017-01-31 UTC&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">now</span>(<span class="dt">tz=</span><span class="st">&quot;Asia/Seoul&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;2019-08-31 14:28:04 KST&quot;</code></pre>
+<pre><code>## [1] &quot;2019-08-31 22:36:50 KST&quot;</code></pre>
 </div>
 <div id="nananinf---" class="section level3">
 <h3><span class="header-section-number">3.1.6</span> NA/NaN/Inf 확인 및 처리</h3>
