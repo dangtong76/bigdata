@@ -120,6 +120,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1.3" data-path="-.html"><a href="-.html#-factor"><i class="fa fa-check"></i><b>3.1.3</b> 팩터 (factor)</a></li>
 <li class="chapter" data-level="3.1.4" data-path="-.html"><a href="-.html#logical"><i class="fa fa-check"></i><b>3.1.4</b> 논리형(Logical)</a></li>
 <li class="chapter" data-level="3.1.5" data-path="-.html"><a href="-.html#date-and-datetime"><i class="fa fa-check"></i><b>3.1.5</b> 날짜타입(Date and Datetime)</a></li>
+<li class="chapter" data-level="3.1.6" data-path="-.html"><a href="-.html#nananinf---"><i class="fa fa-check"></i><b>3.1.6</b> NA/NaN/Inf 확인 및 처리</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="-.html"><a href="-.html#-data-structure"><i class="fa fa-check"></i><b>3.2</b> 데이터 구조(Data Structure)</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="-.html"><a href="-.html#-vector"><i class="fa fa-check"></i><b>3.2.1</b> 벡터 (Vector)</a></li>
@@ -181,17 +182,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </script></p>
 <div id="numeric" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> 숫자(Numeric)</h3>
-<p>숫자</p>
+<ul>
+<li>숫자</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x1 &lt;-<span class="st"> </span><span class="dv">13</span>; x1; <span class="kw">class</span>(x1); <span class="kw">str</span>(x1)</code></pre></div>
 <pre><code>## [1] 13</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <pre><code>##  num 13</code></pre>
-<p>부동수</p>
+<ul>
+<li>부동수</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x2 &lt;-<span class="st"> </span><span class="fl">12.3</span>; x1; <span class="kw">class</span>(x2); <span class="kw">str</span>(x2)</code></pre></div>
 <pre><code>## [1] 13</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <pre><code>##  num 12.3</code></pre>
-<p>정수</p>
+<ul>
+<li>정수</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x3 &lt;-<span class="st"> </span>56L; x3; <span class="kw">class</span>(x3); <span class="kw">str</span>(x3)</code></pre></div>
 <pre><code>## [1] 56</code></pre>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
@@ -205,18 +212,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="-factor" class="section level3">
 <h3><span class="header-section-number">3.1.3</span> 팩터 (factor)</h3>
-<p>팩터의 기본 사용법</p>
+<ul>
+<li>팩터의 기본 사용법</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sex =<span class="st"> </span><span class="kw">factor</span>(<span class="st">&quot;male&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>)); <span class="kw">class</span>(sex); <span class="kw">str</span>(sex); sex</code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
 <pre><code>##  Factor w/ 2 levels &quot;male&quot;,&quot;female&quot;: 1</code></pre>
 <pre><code>## [1] male
 ## Levels: male female</code></pre>
-<p>한번에 여려개의 팩터 할당</p>
+<ul>
+<li>한번에 여려개의 팩터 할당</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sex_family =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;make&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>))
 sex_family</code></pre></div>
 <pre><code>## [1] male   female &lt;NA&gt;  
 ## Levels: male female</code></pre>
-<p>팩터의 레벨 확인</p>
+<ul>
+<li>팩터의 레벨 확인</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nlevels</span>(sex)</code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)</code></pre></div>
@@ -225,7 +238,9 @@ sex_family</code></pre></div>
 <pre><code>## [1] &quot;male&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(sex)[<span class="dv">2</span>]</code></pre></div>
 <pre><code>## [1] &quot;female&quot;</code></pre>
-<p>level 을 지정하지 않을 경우 자동 인지</p>
+<ul>
+<li>level 을 지정하지 않을 경우 자동 인지</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">auto_factor =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;student&quot;</span>,<span class="st">&quot;teacher&quot;</span>,<span class="st">&quot;staff&quot;</span>))
 auto_factor</code></pre></div>
 <pre><code>## [1] student teacher staff  
@@ -248,6 +263,68 @@ auto_factor</code></pre></div>
 </div>
 <div id="date-and-datetime" class="section level3">
 <h3><span class="header-section-number">3.1.5</span> 날짜타입(Date and Datetime)</h3>
+<ul>
+<li>기본적인 현재 날짜 및 시간 조회</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;lubridate&quot;)</span>
+<span class="kw">library</span>(lubridate)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">today</span>() </code></pre></div>
+<pre><code>## [1] &quot;2019-08-31&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">now</span>()</code></pre></div>
+<pre><code>## [1] &quot;2019-08-31 13:10:33 KST&quot;</code></pre>
+<ul>
+<li>문자열 에서 생성</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ymd</span>(<span class="st">&quot;2017-01-31&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-01-31&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mdy</span>(<span class="st">&quot;January 31st, 2017&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-01-31&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dmy</span>(<span class="st">&quot;31-Jan-2017&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-01-31&quot;</code></pre>
+<ul>
+<li>문자열 아니라도 허용</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ymd</span>(<span class="dv">20170131</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-01-31&quot;</code></pre>
+<ul>
+<li>데이트 타임형 생성</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ymd_hms</span>(<span class="st">&quot;2017-01-31 20:11:59&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-01-31 20:11:59 UTC&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mdy_hm</span>(<span class="st">&quot;01/31/2017 08:01&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-01-31 08:01:00 UTC&quot;</code></pre>
+<ul>
+<li>시간대 지정하여 생성</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ymd</span>(<span class="dv">20170131</span>, <span class="dt">tz =</span> <span class="st">&quot;UTC&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-01-31 UTC&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">now</span>(<span class="dt">tz=</span><span class="st">&quot;Asia/Seoul&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2019-08-31 13:10:33 KST&quot;</code></pre>
+</div>
+<div id="nananinf---" class="section level3">
+<h3><span class="header-section-number">3.1.6</span> NA/NaN/Inf 확인 및 처리</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="ot">NA</span>,<span class="dv">0</span><span class="op">/</span><span class="dv">0</span>,<span class="dv">1</span><span class="op">/</span><span class="dv">0</span>)
+z</code></pre></div>
+<pre><code>## [1]   1  NA NaN Inf</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.na</span>(z)</code></pre></div>
+<pre><code>## [1] FALSE  TRUE  TRUE FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.nan</span>(z)</code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.finite</span>(z)</code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.infinite</span>(z)</code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE  TRUE</code></pre>
+<ul>
+<li>NA 처리 : 대부분의 내장 함수들이 na.rm 매개변수를 수용</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="ot">NA</span>, <span class="ot">NaN</span>)
+<span class="kw">mean</span>(x, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] 1.5</code></pre>
 </div>
 </div>
 <div id="-data-structure" class="section level2">
@@ -351,6 +428,48 @@ x</code></pre></div>
 </div>
 <div id="list" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> 리스트(List)</h3>
+<ul>
+<li>리스트 새성</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">name=</span><span class="st">&quot;foo&quot;</span>, <span class="dt">height=</span><span class="dv">70</span>)
+x<span class="op">$</span>name</code></pre></div>
+<pre><code>## [1] &quot;foo&quot;</code></pre>
+<ul>
+<li>다양한 데이터 타입을 저장</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">name=</span><span class="st">&quot;foo&quot;</span>, <span class="dt">score=</span><span class="kw">c</span>(<span class="dv">80</span>,<span class="dv">90</span>,<span class="dv">100</span>))
+x<span class="op">$</span>name</code></pre></div>
+<pre><code>## [1] &quot;foo&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x<span class="op">$</span>score</code></pre></div>
+<pre><code>## [1]  80  90 100</code></pre>
+<ul>
+<li>리스트 안에 리스트를 중첩하는 것도 가능</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="kw">list</span>(<span class="dt">val=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)), <span class="dt">b=</span><span class="kw">list</span>(<span class="dt">val=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)))
+x<span class="op">$</span>a</code></pre></div>
+<pre><code>## $val
+## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x<span class="op">$</span>b</code></pre></div>
+<pre><code>## $val
+## [1] 1 2 3 4</code></pre>
+<ul>
+<li>리스트 접근 방법</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">name=</span><span class="st">&quot;john&quot;</span>, <span class="dt">score=</span><span class="kw">c</span>(<span class="dv">90</span>,<span class="dv">100</span>,<span class="dv">80</span>))
+x<span class="op">$</span>name</code></pre></div>
+<pre><code>## [1] &quot;john&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x<span class="op">$</span>score</code></pre></div>
+<pre><code>## [1]  90 100  80</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[[<span class="dv">1</span>]]</code></pre></div>
+<pre><code>## [1] &quot;john&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[[<span class="dv">2</span>]]</code></pre></div>
+<pre><code>## [1]  90 100  80</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## $name
+## [1] &quot;john&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">2</span>]</code></pre></div>
+<pre><code>## $score
+## [1]  90 100  80</code></pre>
 </div>
 <div id="matrix" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> 행렬(Matrix)</h3>
